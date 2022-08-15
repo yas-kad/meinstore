@@ -2,7 +2,8 @@ import Navbar from "./../components/Navbar"
 import Styles from "../styles/Home.module.css"
 import Product from "../components/Product";
 
-const index = ({products}) => {
+const index = (props) => {
+  let products = props.products;
   return(
     <div className="main">
         {

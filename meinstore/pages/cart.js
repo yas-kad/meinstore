@@ -5,10 +5,16 @@ const cardits = (props) => {
     const [products, setproducts] = useState([]);
     useEffect(() => {
         const varsd = JSON.parse(localStorage.getItem("CardsItems"));
-        // console.log("products ids : ", varsd);
-        const productsUrls = getProductsUrls(varsd);
-        getProductsData(productsUrls);
+        console.log("products ids : ", varsd);
+        let productsUrls;
+        if (varsd != null)
+        {
+            productsUrls = getProductsUrls(varsd);
+            getProductsData(productsUrls);
+        }
     }, [])
+
+
 
     function getProductsUrls(varsd) {
         return varsd.map((pr) => { return axios.get("https://fakestoreapi.com/products/" + pr.id) });
